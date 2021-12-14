@@ -166,6 +166,9 @@ export default class Event {
     document.querySelector("#eventDescription-update").value =
       event.description;
     document.querySelector("#eventURL-update").value = event.link;
+    document
+      .querySelector("#calenderForm-update")
+      .scrollIntoView({ behavior: "smooth" });
   }
 
   deleteEvent(id) {

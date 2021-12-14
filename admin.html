@@ -42,11 +42,15 @@
       <div class="page-padding center">
         <div class="flex3">
           <h2>Rediger</h2>
-          <span class="iconify" data-icon="icon-park-outline:logout"></span>
+          <span
+            class="iconify"
+            data-icon="icon-park-outline:logout"
+            onclick="logout()"
+          ></span>
         </div>
         <div class="whitespace"></div>
-        <!---->
-        <div id="modal32" class="modal-footer">
+        <!-- ==================================== MODAL - LOGIN ==================================== -->
+        <!-- <div id="modal32" class="modal-footer">
           <div class="modal-text-footer">
             <div class="flex2"></div>
             <div class="whitespace"></div>
@@ -73,8 +77,26 @@
               </div>
             </div>
           </div>
+        </div>-->
+        <div id="firebase-auth-container">
+          <div class="login-wrapper">
+            <input
+              type="email"
+              name="loginEmail"
+              id="loginEmail"
+              placeholder="Email"
+            />
+            <input
+              type="password"
+              name="loginPassword"
+              id="loginPassword"
+              placeholder="Password"
+            />
+            <button class="loginBtn button4" onclick="login();">Login</button>
+            <p class="login-message"></p>
+          </div>
         </div>
-
+        <!-- ==================================== SPONSOR - EDIT ==================================== -->
         <div class="whitespace"></div>
         <div class="whitespace"></div>
         <h3>Sponsorer</h3>
@@ -103,8 +125,10 @@
 
         <div class="whitespace"></div>
         <div class="whitespace"></div>
+        <!-- ==================================== CALENDER - EDIT ==================================== -->
         <h3>Kalender</h3>
         <section id="calender_edit" class="event-grid-container"></section>
+        <!-- ==================================== CALENDER - ADD EVENT ==================================== -->
         <div class="edit-flex">
           <div class="calenderform-wrapper">
             <h3>Opret begivenhed</h3>
@@ -168,7 +192,7 @@
               Opret begivenhed
             </button>
           </div>
-
+          <!-- ==================================== CALENDER - UPDATE ==================================== -->
           <div class="calenderform-wrapper">
             <h3>Opdatér begivenhed</h3>
             <p class="bytheway">

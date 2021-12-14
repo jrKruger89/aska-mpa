@@ -64,9 +64,9 @@ if (document.querySelector("#btn-create")) {
 window.deleteSponsor = (id) => _sponsor.deleteSponsor(id);
 
 // LOGIN SECTION ==================================================
-import { login } from "./auth-service.js";
+import { login, logout } from "./auth-service.js";
 window.login = () => login();
-
+window.logout = () => logout();
 // Hero button section ==================================================
 
 try {
