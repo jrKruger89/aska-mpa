@@ -1,0 +1,5 @@
+# Deny access to files with extensions .js
+<FilesMatch "\.(js)$">
+Order allow,deny
+Deny from all
+</FilesMatch>

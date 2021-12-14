@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      id="Cookiebot"
+      src="https://consent.cookiebot.com/uc.js"
+      data-cbid="0a939287-828a-44d4-ad1f-44d9a29bae3a"
+      data-blockingmode="auto"
+      type="text/javascript"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/fav_icon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta
+      name="author"
+      content="Maja Wennerwald, Camilla Nørgaard & Jesper Krüger"
+    />
+    <title>ASKA | Admin</title>
+    <meta name="title" content="ASKA | Admin" />
+    <meta
+      name="description"
+      content="ASKA islandsheste klub Aarhus Syd - del din passion for islandske heste med andre, opnå medlemsfordele og deltag i klubdage."
+    />
+    <meta
+      name="subject"
+      content="ASKA islandsheste klub Aarhus Syd - del din passion for islandske heste med andre, opnå medlemsfordele og deltag i klubdage."
+    />
+    <!-- sponsor-slide -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css"
+      integrity="sha512-YQlbvfX5C6Ym6fTUSZ9GZpyB3F92hmQAZTO5YjciedwAaGRI9ccNs4iw2QTCJiSPheUQZomZKHQtuwbHkA9lgw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <main class="page-height">
+      <div class="page-padding center">
+        <div class="flex3">
+          <h2>Rediger</h2>
+          <span class="iconify" data-icon="icon-park-outline:logout"></span>
+        </div>
+        <div class="whitespace"></div>
+        <!---->
+        <div id="modal32" class="modal-footer">
+          <div class="modal-text-footer">
+            <div class="flex2"></div>
+            <div class="whitespace"></div>
+            <h3>Login som administrator</h3>
+            <div class="line4"></div>
+            <div id="firebase-auth-container">
+              <div class="login-wrapper">
+                <input
+                  type="email"
+                  name="loginEmail"
+                  id="loginEmail"
+                  placeholder="Email"
+                />
+                <input
+                  type="password"
+                  name="loginPassword"
+                  id="loginPassword"
+                  placeholder="Password"
+                />
+                <button class="loginBtn button4" onclick="login();">
+                  Login
+                </button>
+                <p class="login-message"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="whitespace"></div>
+        <div class="whitespace"></div>
+        <h3>Sponsorer</h3>
+        <section id="sponsor_edit" class="event-grid-container"></section>
+        <form id="sponsorForm" class="sponsorForm">
+          <img id="imagePreview" class="image-preview" />
+          <input
+            class="sponsorForm_center"
+            type="file"
+            id="img"
+            accept="image/*"
+            onchange="previewImage(this.files[0], 'imagePreview')"
+          />
+
+          <button
+            type="button"
+            name="button"
+            id="btn-create"
+            class="green button1"
+          >
+            Tilføj sponsor
+          </button>
+        </form>
+        <div class="whitespace"></div>
+        <div class="whitespace"></div>
+
+        <div class="whitespace"></div>
+        <div class="whitespace"></div>
+        <h3>Kalender</h3>
+        <section id="calender_edit" class="event-grid-container"></section>
+        <div class="edit-flex">
+          <div class="calenderform-wrapper">
+            <h3>Opret begivenhed</h3>
+            <div class="whitespace"></div>
+            <div class="whitespace"></div>
+            <form id="calenderForm">
+              <input
+                type="text"
+                name="event-date"
+                id="eventDate"
+                placeholder="Dato: DD-MM-ÅÅÅÅ"
+                class="event-input"
+              />
+              <br />
+              <div class="whitespace"></div>
+              <input
+                type="text"
+                name="event-name"
+                id="eventName"
+                placeholder="Titel"
+                class="event-input"
+              />
+              <br />
+              <div class="whitespace"></div>
+              <input
+                type="text"
+                name="event-url"
+                id="eventURL"
+                placeholder="Link"
+                class="event-input"
+              />
+              <br />
+              <div class="whitespace"></div>
+              <label for="eventCategories">Vælg kategori:</label><br />
+              <br />
+              <select
+                name="event-categories"
+                class="event-input"
+                id="eventCategories"
+                multiple
+              >
+                <option value="Foredrag og kursus">Foredrag og kursus</option>
+                <option value="Stævner">Stævner</option>
+                <option value="Klubdage">Klubdage</option>
+                <option value="ASKA Ungdom">ASKA Ungdom</option>
+                <option value="ASKA Fællesture">ASKA Fællesture</option>
+              </select>
+            </form>
+            <div class="whitespace"></div>
+            <textarea
+              class="event-input"
+              form="calenderForm"
+              name="description"
+              id="eventDescription"
+              cols="30"
+              rows="10"
+              placeholder="Beskrivelse..."
+            ></textarea>
+            <div class="whitespace"></div>
+            <button type="button" id="btn-create-event" class="green button1">
+              Opret begivenhed
+            </button>
+          </div>
+
+          <div class="calenderform-wrapper">
+            <h3>Opdatér begivenhed</h3>
+            <p class="bytheway">
+              (Klik først på den begivenhed du vil opdatere)
+            </p>
+            <div class="whitespace"></div>
+            <form id="calenderForm-update">
+              <input
+                type="text"
+                name="event-date-update"
+                id="eventDate-update"
+                placeholder="Dato: DD-MM-ÅÅÅÅ"
+                class="event-input"
+              />
+              <br />
+              <div class="whitespace"></div>
+              <input
+                type="text"
+                name="event-name-update"
+                id="eventName-update"
+                placeholder="Titel"
+                class="event-input"
+              />
+              <br />
+              <div class="whitespace"></div>
+              <input
+                type="text"
+                name="event-url-update"
+                id="eventURL-update"
+                placeholder="Link"
+                class="event-input"
+              />
+              <br />
+              <div class="whitespace"></div>
+              <label for="eventCategories">Vælg kategori:</label><br /><br />
+              <select
+                class="event-input"
+                name="event-categories-update"
+                id="eventCategories-update"
+                multiple
+              >
+                <option value="Foredrag og kursus">Foredrag og kursus</option>
+                <option value="Stævner">Stævner</option>
+                <option value="Klubdage">Klubdage</option>
+                <option value="ASKA Ungdom">ASKA Ungdom</option>
+                <option value="ASKA Fællesture">ASKA Fællesture</option>
+              </select>
+            </form>
+            <div class="whitespace"></div>
+            <textarea
+              class="event-input"
+              form="calenderForm"
+              name="description-update"
+              id="eventDescription-update"
+              cols="30"
+              rows="10"
+              placeholder="Beskrivelse..."
+            ></textarea>
+            <div class="whitespace"></div>
+            <button type="button" id="btn-update-event" class="green button1">
+              Opdatér begivenhed
+            </button>
+          </div>
+        </div>
+        <div class="whitespace"></div>
+        <div class="whitespace"></div>
+      </div>
+    </main>
+    <div class="greenspace"></div>
+    <!-- loader -->
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+    <script src="js/main.js" type="module"></script>
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+  </body>
+</html>
