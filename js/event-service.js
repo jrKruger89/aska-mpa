@@ -9,6 +9,8 @@ import {
   addDoc,
   doc,
   deleteDoc,
+  query,
+  orderBy,
 } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-firestore.js";
 
 let _selectedEventId = "";
@@ -30,6 +32,7 @@ export default class Event {
         return event;
       });
       if (location.pathname.includes("kalender.html")) {
+        this.sortByDate(this.events)
         this.appendEvents(this.events);
         this.filterEvents();
         showLoader(false);
@@ -40,13 +43,22 @@ export default class Event {
     });
   }
 
+  sortByDate(events) {
+    const sorter = (a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    }
+    events.sort(sorter);
+  };
+
+  
+
   // append events to the DOM
   appendEvents(events) {
     let htmlTemplate = "";
     for (const event of events) {
       htmlTemplate += /*html*/ `
-    <article>
-      <p>${event.date}</p>
+    <article class="article_content">
+      <p>${new Date(event.date).toLocaleDateString('da-dk')}</p>
       <div class="whitespace"></div>
       <p>${event.name}</p>
       <div class="whitespace"></div>

@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script
-      id="Cookiebot"
-      src="https://consent.cookiebot.com/uc.js"
-      data-cbid="0a939287-828a-44d4-ad1f-44d9a29bae3a"
-      data-blockingmode="auto"
-      type="text/javascript"
-    ></script>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="0a939287-828a-44d4-ad1f-44d9a29bae3a" data-blockingmode="auto" type="text/javascript"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="images/fav_icon.svg" type="image/x-icon" />
+    <link rel="icon shortcut" href="images/fav_icon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <meta
@@ -284,6 +278,38 @@
           </div>
           <!------ Reduceret pris til ASKA's egne stævner -------->
           <div class="staevner grid-img">
+            <div class="grid-overlay"></div>
+            <button
+              onclick="document.getElementById('modal4').style.display='block'"
+              class="button3"
+            >
+              Reduceret pris til
+              <br />
+              ASKA's egne stævner
+            </button>
+          </div>
+          <div id="modal4" class="modal">
+            <div class="modal-text">
+              <div class="flex2">
+                <span
+                  onclick="document.getElementById('modal4').style.display='none'"
+                  >&times;</span
+                >
+              </div>
+              <h3>
+                Reduceret pris til
+                <br />
+                ASKA's egne stævner
+              </h3>
+              <div class="line4"></div>
+              <p class="modal-text-p-medlemsfordel">
+                Rabatten fremgår på det enkelte stævne/arrangement. Medlemmer
+                kan ofte også tilmelde sig før ikke-medlemmer.
+              </p>
+            </div>
+          </div>
+          <!------ Ny medlemsfordel -------->
+          <div class="nymedlemsfordel grid-img">
             <div class="grid-overlay"></div>
             <button
               onclick="document.getElementById('modal4').style.display='block'"

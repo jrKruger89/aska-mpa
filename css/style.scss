@@ -202,6 +202,13 @@ a {
   font-family: var(--primary-heading);
   font-size: 30px;
 }
+@media screen and (min-width: 600px) {
+.btn-text1 {
+  font-family: var(--primary-heading);
+  font-size: 45px;
+  line-height: 60px;
+}
+}
 @media screen and (min-width: 992px) {
   .btn-text1 {
     font-size: 80px;
@@ -572,13 +579,14 @@ header {
   position: relative;
   height: 210px;
   margin-top: -60px;
+  justify-content: flex-start !important;
 }
 @media screen and (min-width: 600px) {
   .button-section {
     grid-template-columns: repeat(3, 20vw);
     width: 80%;
     margin: 0 auto;
-    justify-content: space-evenly;
+    justify-content: space-evenly !important;
     height: 275px;
     text-align: center;
     margin-top: 120px;
@@ -603,14 +611,15 @@ header {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 30px 0px;
   text-align: center;
   grid-auto-flow: row;
   grid-template-areas:
     "ostanlaegget teigar-rideudstyr"
     "klubdage staevner"
-    "pet-house saxild";
+    "pet-house saxild"
+    "nymedlemsfordel nymedlemsfordel";
 }
 @media screen and (min-width: 600px) {
   .container2 {
@@ -618,13 +627,14 @@ header {
     margin: auto;
     height: 60vh;
     grid-template-columns: 1.1fr 0.9fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     gap: 20px 20px;
     grid-template-areas:
       "ostanlaegget pet-house teigar-rideudstyr teigar-rideudstyr"
       "ostanlaegget saxild saxild klubdage"
       "ostanlaegget staevner staevner klubdage"
-      "ostanlaegget staevner staevner klubdage";
+      "ostanlaegget staevner staevner klubdage"
+      "nymedlemsfordel nymedlemsfordel nymedlemsfordel nymedlemsfordel";
   }
 }
 .grid-img {
@@ -690,6 +700,12 @@ header {
   grid-area: saxild;
   overflow: hidden;
   background-image: url(/images//saxild_naturfoder.jpg);
+}
+.nymedlemsfordel {
+  grid-area: nymedlemsfordel;
+  overflow: hidden;
+  background-image: url(/images//saxild_naturfoder.jpg);
+  width: 100%;
 }
 .modal {
   width: 100%;
@@ -979,7 +995,7 @@ header {
   animation: fadeIn 0.4s;
   box-shadow: var(--shadow);
   min-width: 250px;
-  height: 320px;
+  height: 300px;
 }
 .filter-buttons {
   display: flex;
@@ -1020,7 +1036,6 @@ header {
 }
 .checkbox_box::after {
   color: white;
-  content: "\2714";
 }
 .eventCheckBox:checked + .checkbox_box {
   background: var(--primary-green);
@@ -1063,6 +1078,11 @@ header {
     width: 40%;
   }
 }
+.article_content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 /* ==================================== PAGES GRID + GENERAL ==================================== */
 .section-button {
   margin: 10px auto 0 auto;
@@ -1089,7 +1109,7 @@ header {
     grid-template-columns: 1.1fr 0.9fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     max-width: 1050px;
-    height: 60vh;
+    height: 70vh;
     gap: 20px 20px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -1391,12 +1411,9 @@ header {
   background-image: url(/images/kontakt_staevneudvalg.jpg);
 }
 .aska-staevner .c {
-  background-image: url(/images/);
+  background-image: url(/images/hero3.jpg);
 }
 @media screen and (min-width: 600px) {
-  .aska-staevner .c {
-    height: 130px;
-  }
   .aska-staevner .d {
     background-position-y: 16%;
   }
@@ -1433,16 +1450,6 @@ header {
     rgba(0, 0, 0, 0)
   );
   background-position-y: 49%;
-}
-#calender-modal18 .modal-img {
-  mask-image: url(/images/);
-  background-image: url(/images);
-  -webkit-mask-image: -webkit-linear-gradient(
-    bottom,
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0)
-  );
-  background-position-y: 16%;
 }
 #calender-modal19 .modal-img {
   mask-image: url(/images/staevneudvalg.jpg);

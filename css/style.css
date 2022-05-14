@@ -249,6 +249,14 @@ a {
   font-size: 30px;
 }
 
+@media screen and (min-width: 600px) {
+  .btn-text1 {
+    font-family: var(--primary-heading);
+    font-size: 45px;
+    line-height: 60px;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .btn-text1 {
     font-size: 80px;
@@ -730,7 +738,7 @@ header {
 .button-section {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (40vw);
+  -ms-grid-columns: (40vw)[3];
       grid-template-columns: repeat(3, 40vw);
   overflow: scroll;
   gap: 30px;
@@ -739,17 +747,20 @@ header {
   position: relative;
   height: 210px;
   margin-top: -60px;
+  -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
+          justify-content: flex-start !important;
 }
 
 @media screen and (min-width: 600px) {
   .button-section {
-    -ms-grid-columns: (20vw);
+    -ms-grid-columns: (20vw)[3];
         grid-template-columns: repeat(3, 20vw);
     width: 80%;
     margin: 0 auto;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    -webkit-box-pack: space-evenly !important;
+        -ms-flex-pack: space-evenly !important;
+            justify-content: space-evenly !important;
     height: 275px;
     text-align: center;
     margin-top: 120px;
@@ -766,7 +777,7 @@ header {
 }
 
 .modal-text-p-medlemsfordel {
-  height: 200px;
+  height: 230px;
   padding: 0 10px;
   overflow: scroll;
 }
@@ -780,14 +791,12 @@ header {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  -ms-grid-rows: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 30px 0px;
   text-align: center;
   grid-auto-flow: row;
-      grid-template-areas: "ostanlaegget teigar-rideudstyr"
- "klubdage staevner"
- "pet-house saxild";
+      grid-template-areas: "ostanlaegget teigar-rideudstyr" "klubdage staevner" "pet-house saxild" "nymedlemsfordel nymedlemsfordel";
 }
 
 @media screen and (min-width: 600px) {
@@ -797,13 +806,10 @@ header {
     height: 60vh;
     -ms-grid-columns: 1.1fr 0.9fr 1fr 1fr;
         grid-template-columns: 1.1fr 0.9fr 1fr 1fr;
-    -ms-grid-rows: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     gap: 20px 20px;
-        grid-template-areas: "ostanlaegget pet-house teigar-rideudstyr teigar-rideudstyr"
- "ostanlaegget saxild saxild klubdage"
- "ostanlaegget staevner staevner klubdage"
- "ostanlaegget staevner staevner klubdage";
+        grid-template-areas: "ostanlaegget pet-house teigar-rideudstyr teigar-rideudstyr" "ostanlaegget saxild saxild klubdage" "ostanlaegget staevner staevner klubdage" "ostanlaegget staevner staevner klubdage" "nymedlemsfordel nymedlemsfordel nymedlemsfordel nymedlemsfordel";
   }
 }
 
@@ -899,6 +905,16 @@ header {
   grid-area: saxild;
   overflow: hidden;
   background-image: url(/images//saxild_naturfoder.jpg);
+}
+
+.nymedlemsfordel {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: nymedlemsfordel;
+  overflow: hidden;
+  background-image: url(/images//saxild_naturfoder.jpg);
+  width: 100%;
 }
 
 .modal {
@@ -1316,7 +1332,7 @@ header {
   -webkit-box-shadow: var(--shadow);
           box-shadow: var(--shadow);
   min-width: 250px;
-  height: 320px;
+  height: 300px;
 }
 
 .filter-buttons {
@@ -1392,7 +1408,6 @@ header {
 
 .checkbox_box::after {
   color: white;
-  content: "\2714";
 }
 
 .eventCheckBox:checked + .checkbox_box {
@@ -1444,6 +1459,19 @@ header {
   }
 }
 
+.article_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 /* ==================================== PAGES GRID + GENERAL ==================================== */
 .section-button {
   margin: 10px auto 0 auto;
@@ -1462,10 +1490,7 @@ header {
   margin: 0 auto;
   gap: 30px 0px;
   grid-auto-flow: row;
-      grid-template-areas: "a b"
- "c d"
- "e f"
- "g g";
+      grid-template-areas: "a b" "c d" "e f" "g g";
 }
 
 @media (min-width: 600px) {
@@ -1477,14 +1502,10 @@ header {
     -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     max-width: 1050px;
-    height: 60vh;
+    height: 70vh;
     gap: 20px 20px;
     grid-auto-flow: row;
-        grid-template-areas: "a b c c"
- "a d d e"
- "a f f e"
- "a f f e"
- "g g g g";
+        grid-template-areas: "a b c c" "a d d e" "a f f e" "a f f e" "g g g g";
   }
 }
 
@@ -1810,13 +1831,10 @@ header {
 }
 
 .aska-staevner .c {
-  background-image: url(/images/);
+  background-image: url(/images/hero3.jpg);
 }
 
 @media screen and (min-width: 600px) {
-  .aska-staevner .c {
-    height: 130px;
-  }
   .aska-staevner .d {
     background-position-y: 16%;
   }
@@ -1853,14 +1871,6 @@ header {
   background-image: url(/images/kontakt_staevneudvalg.jpg);
   -webkit-mask-image: -webkit-linear-gradient(bottom, black, rgba(0, 0, 0, 0));
   background-position-y: 49%;
-}
-
-#calender-modal18 .modal-img {
-  -webkit-mask-image: url(/images/);
-          mask-image: url(/images/);
-  background-image: url(/images);
-  -webkit-mask-image: -webkit-linear-gradient(bottom, black, rgba(0, 0, 0, 0));
-  background-position-y: 16%;
 }
 
 #calender-modal19 .modal-img {
